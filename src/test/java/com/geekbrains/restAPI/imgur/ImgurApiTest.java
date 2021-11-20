@@ -1,6 +1,10 @@
 package com.geekbrains.restAPI.imgur;
 
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
 import org.junit.jupiter.api.*;
 
 import static io.restassured.RestAssured.given;
@@ -14,6 +18,13 @@ public class ImgurApiTest {
         RestAssured.baseURI = ImgurApiParams.API_URL + "/" + ImgurApiParams.API_VERSION;
     }
 
+    ResponseSpecification responseSpecification = new ResponseSpecBuilder()
+            .expectStatusCode(is(200))
+            .expectBody("success", is(true))
+            .expectBody("status", is(200))
+            .build();
+
+
     @DisplayName("Тест на получение базовой информации об аккаунте")
     @Test
     @Order(1)
@@ -25,9 +36,7 @@ public class ImgurApiTest {
                 .log()
                 .all()
                 .expect()
-                .statusCode(is(200))
-                .body("success", is(true))
-                .body("status", is(200))
+                .spec(responseSpecification)
                 .body("data.reputation_name", is("Neutral"))
                 .body("data.reputation", is(0))
                 .log()
@@ -42,13 +51,18 @@ public class ImgurApiTest {
     void testUpdateImageInformation() {
         String url = "image/" + "fhT8GDx";
 //        given().get("").body().jsonPath().getString("data.id")
+
+        RequestSpecification requestSpecification = new RequestSpecBuilder()
+                .addFormParam("title", "Sun")
+                .addFormParam("description", "A simple mem")
+                .build();
+
         given().when()
                 .auth()
                 .oauth2(ImgurApiParams.TOKEN)
                 .log()
                 .all()
-                .formParam("title", "Water")
-                .formParam("description", "Just a simple mem")
+                .spec(requestSpecification)
                 .expect()
                 .log()
                 .all()
@@ -69,9 +83,7 @@ public class ImgurApiTest {
                 .log()
                 .all()
                 .expect()
-                .statusCode(is(200))
-                .body("success", is(true))
-                .body("status", is(200))
+                .spec(responseSpecification)
                 .log()
                 .all()
                 .when()
@@ -88,9 +100,7 @@ public class ImgurApiTest {
                 .log()
                 .all()
                 .expect()
-                .statusCode(is(200))
-                .body("success", is(true))
-                .body("status", is(200))
+                .spec(responseSpecification)
                 .body("data.images_count", is(2))
                 .body("data.layout", is("blog"))
                 .log()
@@ -109,9 +119,7 @@ public class ImgurApiTest {
                 .log()
                 .all()
                 .expect()
-                .statusCode(is(200))
-                .body("success", is(true))
-                .body("status", is(200))
+                .spec(responseSpecification)
                 .log()
                 .all()
                 .when()
@@ -128,9 +136,7 @@ public class ImgurApiTest {
                 .log()
                 .all()
                 .expect()
-                .statusCode(is(200))
-                .body("success", is(true))
-                .body("status", is(200))
+                .spec(responseSpecification)
                 .body("data", is(2))
                 .log()
                 .all()
@@ -148,9 +154,7 @@ public class ImgurApiTest {
                 .log()
                 .all()
                 .expect()
-                .statusCode(is(200))
-                .body("success", is(true))
-                .body("status", is(200))
+                .spec(responseSpecification)
                 .log()
                 .all()
                 .when()
@@ -167,9 +171,7 @@ public class ImgurApiTest {
                 .log()
                 .all()
                 .expect()
-                .statusCode(is(200))
-                .body("success", is(true))
-                .body("status", is(200))
+                .spec(responseSpecification)
                 .body("data.id", is("aoOv1tv"))
                 .body("data.description", is("This is an image of a heart outline."))
                 .body("data.name", is("Триумф сборной России по хоккею на олимпиаде 2018"))
@@ -189,9 +191,7 @@ public class ImgurApiTest {
                 .log()
                 .all()
                 .expect()
-                .statusCode(is(200))
-                .body("success", is(true))
-                .body("status", is(200))
+                .spec(responseSpecification)
                 .log()
                 .all()
                 .when()
@@ -208,9 +208,7 @@ public class ImgurApiTest {
                 .log()
                 .all()
                 .expect()
-                .statusCode(is(200))
-                .body("success", is(true))
-                .body("status", is(200))
+                .spec(responseSpecification)
                 .body("data", is(16))
                 .log()
                 .all()
@@ -228,9 +226,7 @@ public class ImgurApiTest {
                 .log()
                 .all()
                 .expect()
-                .statusCode(is(200))
-                .body("success", is(true))
-                .body("status", is(200))
+                .spec(responseSpecification)
                 .log()
                 .all()
                 .when()
