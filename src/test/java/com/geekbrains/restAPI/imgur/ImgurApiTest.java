@@ -27,6 +27,7 @@ public class ImgurApiTest {
 
     @DisplayName("Тест на получение базовой информации об аккаунте")
     @Test
+    @Disabled
     @Order(1)
     void testAccountBase() {
         String url = "account/" + ImgurApiParams.USERNAME;
@@ -47,6 +48,7 @@ public class ImgurApiTest {
 
     @DisplayName("Тест обновления информации о картинке")
     @Test
+    @Disabled
     @Order(2)
     void testUpdateImageInformation() {
         String url = "image/" + "fhT8GDx";
@@ -74,6 +76,7 @@ public class ImgurApiTest {
     }
     @DisplayName("Тест на получение информации об альбомах")
     @Test
+    @Disabled
     @Order(3)
     void testAlbums() {
         String url = "account/" + ImgurApiParams.USERNAME + "/" + "albums/" + ImgurApiParams.PAGE;
@@ -91,6 +94,7 @@ public class ImgurApiTest {
     }
     @DisplayName("Тест на получение информации об альбоме")
     @Test
+    @Disabled
     @Order(4)
     void testAlbum() {
         String url = "account/" + ImgurApiParams.USERNAME + "/" + "album/" + ImgurApiParams.ALBUMHASH;
@@ -110,6 +114,7 @@ public class ImgurApiTest {
     }
     @DisplayName("Тест на получение идентификаторов альбомов")
     @Test
+    @Disabled
     @Order(5)
     void testAlbumIDs() {
         String url = "account/" + ImgurApiParams.USERNAME + "/" + "albums/" + "ids/" + ImgurApiParams.PAGE;
@@ -127,6 +132,7 @@ public class ImgurApiTest {
     }
     @DisplayName("Тест на получение количества альбомов")
     @Test
+    @Disabled
     @Order(6)
     void testAlbumCount() {
         String url = "account/" + ImgurApiParams.USERNAME + "/" + "albums/" + "count";
@@ -145,6 +151,7 @@ public class ImgurApiTest {
     }
     @DisplayName("Тест на получение информации об изображениях")
     @Test
+    @Disabled
     @Order(7)
     void testImages() {
         String url = "account/" + ImgurApiParams.USERNAME + "/" + "images/" + ImgurApiParams.PAGE;
@@ -162,6 +169,7 @@ public class ImgurApiTest {
     }
     @DisplayName("Тест на получение информации о конкретном изображении")
     @Test
+    @Disabled
     @Order(8)
     void testImage() {
         String url = "account/" + ImgurApiParams.USERNAME + "/" + "image/" + "aoOv1tv";
@@ -182,6 +190,7 @@ public class ImgurApiTest {
     }
     @DisplayName("Тест на получение идентификаторов изображений")
     @Test
+    @Disabled
     @Order(9)
     void testImageIDs() {
         String url = "account/" + ImgurApiParams.USERNAME + "/" + "images/" + "ids/" + ImgurApiParams.PAGE;
@@ -199,6 +208,7 @@ public class ImgurApiTest {
     }
     @DisplayName("Тест на получение количества изображений")
     @Test
+    @Disabled
     @Order(10)
     void testImageCount() {
         String url = "account/" + ImgurApiParams.USERNAME + "/" + "images/" + "count";
@@ -217,6 +227,7 @@ public class ImgurApiTest {
     }
     @DisplayName("Тест на получение информации об изображениях в альбоме")
     @Test
+    @Disabled
     @Order(11)
     void testAlbumImages() {
         String url = "album/" + ImgurApiParams.ALBUMHASH + "/" + "images";
@@ -234,6 +245,7 @@ public class ImgurApiTest {
     }
     @DisplayName("Тест на добавление изображения в избранное")
     @Test
+    @Disabled
     @Order(12)
     void testFavoriteAnImage() {
         String url = "image/" + "aoOv1tv";

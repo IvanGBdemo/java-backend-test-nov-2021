@@ -1,10 +1,7 @@
 package com.geekbrains.lesson4;
 
 import io.restassured.http.ContentType;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.notNullValue;
@@ -14,6 +11,7 @@ public class MiniMarketApiTest {
     private static Long id;
 
     @Test
+    @Disabled
     @Order(1)
     void testCreateNewProduct() {
         Product product = given().when()
@@ -36,6 +34,7 @@ public class MiniMarketApiTest {
     }
 
     @Test
+    @Disabled
     @Order(2)
     void testDeleteById() {
         given().when()

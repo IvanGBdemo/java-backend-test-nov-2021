@@ -29,6 +29,7 @@ public class MiniMarketApiTest {
     }
 
     @Test
+    @Disabled
     void testGetProductByIdProductExist() throws IOException {
 
         Product product = apiService.getProduct(1);
@@ -38,6 +39,7 @@ public class MiniMarketApiTest {
     }
 
     @Test
+    @Disabled
     void testGetProductByIdProductNotExists() {
 
         Assertions.assertThrows(RuntimeException.class, () -> {
@@ -46,6 +48,7 @@ public class MiniMarketApiTest {
     }
 
     @Test
+    @Disabled
     void testGetProducts() throws IOException {
         Type type = new TypeToken<ArrayList<Product>>() {
         }.getType();
@@ -61,6 +64,7 @@ public class MiniMarketApiTest {
     }
 
     @Test
+    @Disabled
     @Order(1)
     void testCreateNewProduct() throws IOException {
         Product product = Product
@@ -75,6 +79,7 @@ public class MiniMarketApiTest {
     }
 
     @Test
+    @Disabled
     @Order(2)
     void testDeleteById() throws IOException {
         Assertions.assertThrows(EOFException.class, () -> {
