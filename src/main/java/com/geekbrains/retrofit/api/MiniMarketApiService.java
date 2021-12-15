@@ -1,7 +1,6 @@
 package com.geekbrains.retrofit.api;
 
 import com.geekbrains.retrofit.model.Product;
-import jdk.nashorn.internal.ir.IfNode;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

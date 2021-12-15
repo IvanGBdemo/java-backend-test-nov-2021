@@ -1,5 +1,7 @@
 package com.geekbrains.mybatis;
 
+import com.geekbrains.db.dao.CategoriesMapper;
+import com.geekbrains.db.dao.ProductsMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
